@@ -156,7 +156,7 @@ class LogisticRegressor:
 
         # TODO: Predict the class for each input data given the threshold in the argument
         probabilities = self.predict_proba(X)
-        classification_result = (probabilities >= threshold) #porq esto devolverá True o False, es decir 0 o 1 segun si esta por encima o debajo del corte seleccionado
+        classification_result = (probabilities >= threshold).astype(int) #porq esto devolverá True o False, es decir 0 o 1 segun si esta por encima o debajo del corte seleccionado
 
         return classification_result
 
@@ -291,5 +291,5 @@ class LogisticRegressor:
         """
 
         # TODO: Implement the sigmoid function to convert the logits into probabilities
-        sigmoid_value = 1/(1+np.exp(-z)) #sigmoide devuelve el valor de la prob entre 0 y 1 de que el dato x pertenezca a la clase j
+        sigmoid_value = 1 / ( 1 +np.exp(-z)) #sigmoide devuelve el valor de la prob entre 0 y 1 de que el dato x pertenezca a la clase j
         return sigmoid_value
